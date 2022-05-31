@@ -8,17 +8,50 @@ console.log('hello'.toUpperCase())
 // console.log(y) 
 
 
+class Sum{
+    constructor(sum){
+        this.sum = sum.x * sum.y
+    }
+}
+
+let sum = new Sum({
+    x:5,
+    y:4
+})
+console.log(sum) //20
+
 class Animals{
-    constructor(name, age, color){
-        this.name = name,
-        this.age = age,
-        this.color = color
+    constructor(info){
+        this.name = info.name,
+        this.age = info.age,
+        this.color = info.color
     }
 }
 
 
-let cat = new Animals('cat', 5, 'black')
-console.log(cat.name) //cat
+let cat = new Animals({
+    name:'cat',
+    age: 5,
+    color:'white'
+})
 
-dog = new Animals('dog', 3, 'silver')
-console.log(dog)
+console.log(cat)
+
+class Dogs extends Animals{
+    constructor(info){
+        super(info)
+        this.country = info.country
+    }
+    voice(){
+        console.log('i am dog')
+    }
+}
+
+const dog = new Dogs({
+    name: 'dog',
+    age:12,
+    color:'black',
+    country: 'uzb'
+})
+
+console.log(dog.voice()) // i am dog

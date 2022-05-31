@@ -55,3 +55,41 @@ const dog = new Dogs({
 })
 
 console.log(dog.voice()) // i am dog
+
+
+class User{
+    constructor(user){
+        this.name = user.name,
+        this.age = user.age
+    }
+    sayHello(){
+        return `Hello ${this.name}`
+    }
+}
+
+let alex = new User({
+    name:"Alex",
+    age:18
+})
+console.log(alex.sayHello().toUpperCase()) // HELLO ALEX
+console.log(alex.ad ? alex.age+2 : alex.name) // Alex
+
+class Person extends User{
+    constructor(user){
+        super(user)
+        this.country = user.country
+        this.email = user.email 
+    }
+    sayHello(){
+        return `${this.name} from ${this.country}`  
+    }
+}
+
+let humoyun = new Person({
+    name:"Humoyun",
+    age: 19,
+    country:'UZB',
+    email: 'khumoyunkh@email.com'
+})
+console.log(humoyun.country)
+console.log(humoyun.sayHello()) // Humoyun from UZB

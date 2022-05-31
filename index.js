@@ -42,8 +42,8 @@ class Dogs extends Animals{
         super(info)
         this.country = info.country
     }
-    voice(){
-        console.log('i am dog')
+    get voice(){
+        return console.log('i am dog')
     }
 }
 
@@ -54,7 +54,7 @@ const dog = new Dogs({
     country: 'uzb'
 })
 
-console.log(dog.voice()) // i am dog
+console.log(dog.voice) // i am dog
 
 
 class User{
@@ -62,7 +62,7 @@ class User{
         this.name = user.name,
         this.age = user.age
     }
-    sayHello(){
+    get sayHello(){
         return `Hello ${this.name}`
     }
 }
@@ -71,7 +71,7 @@ let alex = new User({
     name:"Alex",
     age:18
 })
-console.log(alex.sayHello().toUpperCase()) // HELLO ALEX
+console.log(alex.sayHello.toUpperCase()) // HELLO ALEX
 console.log(alex.ad ? alex.age+2 : alex.name) // Alex
 
 class Person extends User{
@@ -80,7 +80,7 @@ class Person extends User{
         this.country = user.country
         this.email = user.email 
     }
-    sayHello(){
+    get sayHello(){
         return `${this.name} from ${this.country}`  
     }
 }
@@ -91,5 +91,27 @@ let humoyun = new Person({
     country:'UZB',
     email: 'khumoyunkh@email.com'
 })
+
 console.log(humoyun.country)
-console.log(humoyun.sayHello()) // Humoyun from UZB
+console.log(humoyun.sayHello) // Humoyun from UZB
+
+class Students extends Person{
+    constructor(user){
+        super(user)
+        this.form = user.form
+    }
+    get student(){
+        return `My name is ${this.name}. I study at ${this.form} form`
+    }
+}
+
+let sha = new Students({
+    name:'Sha',
+    age:18,
+    form:10,
+    country: "UZB"
+})
+
+console.log(sha.student) // My name is Sha. I study at 10 form
+console.log(sha.sayHello)
+

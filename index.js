@@ -166,55 +166,88 @@
 // console.log(p(2)) // 5
 
 
-class Students{
-    constructor(student){
-        // this.name = student.name
-        this.form = student.form
-    }
-    set name(name){
-        this._name = name
-    }
-    get name_of_student(){
-        return `my name is ${this._name}`
+// class Students{
+//     constructor(student){
+//         // this.name = student.name
+//         this.form = student.form
+//     }
+//     set name(name){
+//         this._name = name
+//     }
+//     get name_of_student(){
+//         return `my name is ${this._name}`
+//     }
+// }
+
+
+// let humoyun = new Students({
+//     form:12
+// })
+// humoyun.name = 'Humoyun'
+// console.log(humoyun)
+// console.log(humoyun.name_of_student.toUpperCase()) // MY NAME IS HUMOYUN
+
+
+// let sha  = new Students(humoyun)
+// sha.name = 'sha'
+// console.log(sha)
+// console.log(sha.name_of_student)
+
+// let array = [1,2,3,2,3,4,5,6]
+// let d = array.filter(item => item >4)
+// console.log(d)
+
+// let x = Array.from(array)
+// x[0]=5
+// console.log(x)
+
+// let obj = {
+//     name: 'humoyun',
+//     age:19
+// }
+
+// if(obj.name ==='humoyun'){
+//     for(let k in obj)
+//     console.log(obj[k]+2)
+// }
+
+// let h = 5
+// let y =1
+// // for (let i = 1; i<=h; i++){
+// //     y *= i 
+// // }
+
+// while(h>1){
+//     y *= h
+//     h--
+// }
+
+// console.log(y) //120
+
+
+class Person{
+    constructor(person){
+        this.name = person.name
+        this.age = person.age
     }
 }
 
+class Student extends Person{
+    constructor(person){
+        super(person)
+        this.form = person.form
+    }
+    get Student_name(){
+        return `my name is ${this.name}`
+    } 
+}
 
-let humoyun = new Students({
-    form:12
-})
-humoyun.name = 'Humoyun'
-console.log(humoyun)
-console.log(humoyun.name_of_student.toUpperCase()) // MY NAME IS HUMOYUN
 
 
-let sha  = new Students(humoyun)
-sha.name = 'sha'
-console.log(sha)
-console.log(sha.name_of_student)
-
-let array = [1,2,3,2,3,4,5,6]
-let d = array.filter(item => item >4)
-console.log(d)
-
-let x = Array.from(array)
-x[0]=5
-console.log(x)
-
-let obj = {
-    name: 'humoyun',
+let humoyun = new Student({
+    name: 'Humoyun',
     age:19
-}
+})
 
-if(obj.name ==='humoyun'){
-    for(let k in obj)
-    console.log(obj[k]+2)
-}
+console.log(humoyun.Student_name)  // My name is Humoyun
 
-let h = 5
-let y =1
-for (let i = 1; i<=h; i++){
-    y *= i 
-}
-
-console.log(y) //120
